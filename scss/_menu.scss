@@ -1,0 +1,308 @@
+// მთავარი მენიუ
+nav.navigation {
+    @media(max-width: 992px) {
+        display: none;
+    }
+    >ul {
+        @extend .no-list;
+        display: flex;
+        >li {
+            position: static;
+            margin-right: 5px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-radius: 5px 5px 0 0;
+            &:last-child {
+                margin-right: 0;
+            }
+            >a {
+                @extend .trans-4;
+                display: block;
+                padding: 10px 20px;
+                color: $cwhite;
+                font-size: 16px;
+                font-family: $ffmain;
+                font-weight: 700;
+                border-radius: 3px;
+                &:after {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 15px;
+                    left: 0;
+                    top: 100%;
+                    background-color: $cwhite;
+                    opacity: 0;
+                }
+            }
+            &:hover {
+                >a {
+                    color: $ccorp;
+                    background-color: $cwhite;
+                }
+            }
+            &.hasul {
+                &:hover {
+                    a {
+                        border-radius: 3px 3px 0 0;
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            div.sub_menu {
+                display: grid;
+                grid-gap: 20px;
+                grid-template-columns: 55fr 45fr;
+                position: absolute;
+                width: calc(100% + 150px);
+                left: -75px;
+                top: 100%;
+                padding: 40px 30px;
+                background-color: $cwhite;
+                border-radius: 0 0 10px 10px;
+                visibility: hidden;
+                opacity: 0;
+                ul {
+                    column-count: 2;
+                    column-gap: 10px;
+                    li {
+                        break-inside: avoid;
+                        margin-bottom: 5px;
+                        padding-left: 15px;
+                        &:before {
+                            display: block;
+                            position: absolute;
+                            content: "\f105";
+                            left: 0;
+                            top: 0;
+                            color: $corange;
+                            font-size: 16px;
+                            font-family: $ffawesomepro;
+                            font-weight: 300;
+                        }
+                        a {
+                            @extend .trans-4;
+                            display: block;
+                            color: $ccorp;
+                            font-weight: 600;
+                        }
+                        &.active,
+                        &:hover {
+                            >a {
+                                padding-left: 5px;
+                                color: $corange;
+                            }
+                        }
+                        ul {
+                            left: 100%;
+                            top: -20px;
+                        }
+                        &:hover {
+                            ul {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                div.sub_blocks {
+                    display: grid;
+                    grid-gap: 15px;
+                    grid-template-columns: repeat(2, 1fr);
+                    a {
+                        display: block;
+                        color: $cwhite;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        img {
+                            z-index: 1;
+                        }
+                        &:before {
+                            @extend .overlay;
+                            background-color: rgba($ccorp, 0.2);
+                            z-index: 2;
+                        }
+                        span {
+                            display: block;
+                            position: absolute;
+                            left: 15px;
+                            bottom: 15px;
+                            font-size: 12px;
+                            font-weight: 500;
+                            z-index: 3;
+                        }
+                        em {
+                            display: block;
+                            position: absolute;
+                            right: 15px;
+                            bottom: 15px;
+                            font-size: 16px;
+                            z-index: 3;
+                        }
+                        &:hover {
+                            &:before {
+                                background-color: rgba($ccorp, 0.4);
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover {
+                >div.sub_menu {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+// მთავარი მენიუ
+// რესპონსივ მენიუ
+div.resp_menu {
+    display: none;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 20px;
+    right: 15px;
+    z-index: 1000;
+    @media(max-width: 992px) {
+        display: block;
+        margin: 15px 30px 10px;
+    }
+    div.resp_menu_toggle {
+        @extend .trans-all-4;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background-color: $ccorp;
+        border-radius: 5px;
+        cursor: pointer;
+        bottom: 20px;
+        div {
+            position: absolute;
+            width: 15px;
+            height: 1px;
+            top: 50%;
+            right: 10px;
+            background-color: $cwhite;
+            &:first-child {
+                margin-top: -6px;
+            }
+            &:last-child {
+                margin-top: 6px;
+            }
+        }
+        &.resp_menu_toggled {
+            border-radius: 5px 5px 0 0;
+            div {
+                &:first-child,
+                &:last-child {
+                    opacity: 0;
+                }
+                &:nth-child(2) {
+                    transform: rotate(45deg);
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+    div.resp_menu_ul {
+        display: none;
+        position: absolute;
+        width: 200px;
+        top: 35px;
+        right: 0;
+        padding: 10px 15px;
+        background-color: $ccorp;
+        border-radius: 5px 0 5px 5px;
+        >ul {
+            @extend .no-list;
+            >li {
+                position: relative;
+                padding: 10px 5px;
+                border-bottom: 1px solid rgba($cwhite, 0.1);
+                &:last-child {
+                    border-bottom: none;
+                }
+                >em {
+                    display: none;
+                }
+                >a {
+                    display: block;
+                    color: $cwhite;
+                }
+                div.plus_minus {
+                    @extend .trans-all-4;
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    top: 5px;
+                    right: 0;
+                    background-color: $ccorp;
+                    cursor: pointer;
+                    div.plus,
+                    div.minus {
+                        position: absolute;
+                        width: 11px;
+                        height: 1px;
+                        background-color: $cwhite;
+                        left: 50%;
+                        top: 15px;
+                        transform: translateX(-50%);
+                    }
+                    div.minus {
+                        transform: translateX(-50%) rotate(90deg);
+                    }
+                    &.plus_minus_toggled {
+                        div.minus {
+                            transform: translateX(-50%) rotate(0deg);
+                        }
+                    }
+                }
+                ul {
+                    display: none;
+                    padding: 10px 0 0 5px;
+                    li {
+                        position: relative;
+                        padding-bottom: 5px;
+                        &:before {
+                            display: block;
+                            position: absolute;
+                            content: "";
+                            left: 0;
+                            top: 10px;
+                            width: 5px;
+                            height: 1px;
+                            background-color: $cwhite;
+                        }
+                        a {
+                            display: block;
+                            margin-left: 15px;
+                            color: $cwhite;
+                        }
+                        ul {
+                            padding-left: 15px;
+                        }
+                        div.plus_minus {
+                            height: 20px;
+                            top: 0px;
+                            div.plus,
+                            div.minus {
+                                top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// რესპონსივ მენიუ

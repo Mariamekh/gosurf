@@ -1,0 +1,128 @@
+                        body {
+                            font-family: "Fira Sans";
+                            font-weight: 400;
+                            color: white;
+                            background-color: #171919;
+                            text-transform: uppercase;
+                        }
+                        
+                        *,
+                        *::before,
+                        *::after {
+                            box-sizing: inherit;
+                        }
+                        
+                        html {
+                            box-sizing: border-box;
+                        }
+                        
+                        .container {
+                            max-width: 1920px;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        
+                        a {
+                            display: inline-block;
+                            text-decoration: none;
+                            color: white;
+                        }
+                        
+                        li,
+                        ul {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        
+                        .headline-right {
+                            font-size: 22px;
+                            font-weight: 400;
+                            letter-spacing: 7.33px;
+                            line-height: 20px;
+                            opacity: 0.5;
+                            position: relative;
+                            display: inline-block;
+                            &::before {
+                                content: " ";
+                                display: block;
+                                position: absolute;
+                                width: 80px;
+                                height: 1px;
+                                background-color: #fff;
+                                left: 100%;
+                                top: 50%;
+                            }
+                        }
+                        
+                        .headline-left {
+                            opacity: 0.5;
+                            color: #ffffff;
+                            font-family: "Fira Sans";
+                            font-size: 22px;
+                            font-weight: 400;
+                            letter-spacing: 7.33px;
+                            line-height: 32px;
+                            text-transform: uppercase;
+                            text-align: right;
+                            padding-left: 103px;
+                            position: relative;
+                            display: inline-block;
+                            &::before {
+                                content: " ";
+                                display: block;
+                                position: absolute;
+                                width: 80px;
+                                height: 1px;
+                                background-color: #fff;
+                                left: 0;
+                                top: 50%;
+                            }
+                        }
+                        
+                        .subtittle {
+                            display: inline-block;
+                            text-align: right;
+                            &__head {
+                                font-size: 40px;
+                                font-weight: 800;
+                                line-height: 86px;
+                                text-transform: uppercase;
+                                font-weight: 800;
+                                span {
+                                    font-weight: 100;
+                                }
+                            }
+                        }
+                        
+                        .btn {
+                            font-size: 40px;
+                            font-weight: 800;
+                            line-height: 36px;
+                            text-transform: uppercase;
+                            span {
+                                padding: 17px 57px 15px 17px;
+                                background-color: #4af6cd;
+                                display: inline-block;
+                                position: relative;
+                                &::before {
+                                    content: " ";
+                                    width: 20px;
+                                    height: 1px;
+                                    background-color: #ffffff;
+                                    position: absolute;
+                                    left: -5px;
+                                    top: 50%;
+                                }
+                                &::after {
+                                    content: " ";
+                                    background-image: url(../img/arrow-right.svg);
+                                    position: absolute;
+                                    width: 25px;
+                                    height: 21px;
+                                    top: 50%;
+                                    right: 17px;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
